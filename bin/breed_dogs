@@ -1,3 +1,0 @@
-require-relative '..lib/breed_dogs'
-
-Cli.new.start
