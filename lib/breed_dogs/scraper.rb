@@ -1,9 +1,8 @@
+
 class Scraper 
 
  def self.scrape_dogs
-   require 'pry'
-   require 'nokogiri'
-   require 'open-uri'
+   
    page = Nokogiri::HTML(open("https://dogtime.com/dog-breeds/profiles"))
    alldogs = page.css"a.list-item-title"
    #puts "#{alldogs}"
@@ -25,6 +24,10 @@ class Scraper
    end
    #binding.pry
  end
-
+def self.scrap_details(dog)
+   dog_page = Nokogiri::HTML(open(dog.url))
+   dog_page_data = dog_page.css".breeds-single-content p"
+ dog_page_data
+end 
 end 
 
